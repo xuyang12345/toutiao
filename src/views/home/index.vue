@@ -1,6 +1,6 @@
 <template>
-  <div>
-      我是主页
+  <div class="login">
+     <span>我是主页</span>
   </div>
 </template>
 
