@@ -59,15 +59,25 @@ export default {
   },
   methods: {
     submitLogin () {
-      this.$refs.myForm.validate(function (isOK) {
+      this.$refs.myForm.validate((isOK) => {
         if (isOK) {
           // 认为前端校验登录成功
-          console.log('前端校验成功，发送用户名和密码到后台去校验')
+          this.$http({
+            url: '/authorizations',
+            method: 'post',
+            data: this.loginForm
+          }).then(result => {
+            window.localStorage.setItem('user-token', result.data.data.token)
+          }).catch(error => {
+            console.log(error)
+          })
         }
       })
     }
   }
+
 }
+
 </script>
 
 <style lang="less" scoped>
