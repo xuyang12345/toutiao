@@ -3,21 +3,21 @@
       <div class='title'>
           <img src="../../assets/img/logo_admin.png" alt="">
       </div>
-      <el-menu style="width:231px" background-color="#353b4e" text-color="#adafb5" active-text-color="#ffd04b">
-       <el-menu-item>首页</el-menu-item>
-       <el-submenu>
+      <el-menu router style="width:231px" background-color="#353b4e" text-color="#adafb5" active-text-color="#ffd04b">
+       <el-menu-item >首页</el-menu-item>
+       <el-submenu index='1'>
            <span slot="title">内容管理</span>
-           <el-menu-item>发布文章</el-menu-item>
-           <el-menu-item>内容评论</el-menu-item>
-           <el-menu-item>评论列表</el-menu-item>
-           <el-menu-item>素材管理</el-menu-item>
+           <el-menu-item index="home/publish">发布文章</el-menu-item>
+           <el-menu-item index="home/articles">内容评论</el-menu-item>
+           <el-menu-item index="home/comment">评论列表</el-menu-item>
+           <el-menu-item index="home/material">素材管理</el-menu-item>
        </el-submenu>
-       <el-submenu>
+       <el-submenu index='2'>
            <span slot="title">粉丝管理</span>
-           <el-menu-item>图文数据</el-menu-item>
-           <el-menu-item>粉丝画像</el-menu-item>
-           <el-menu-item>粉丝概况</el-menu-item>
-           <el-menu-item>粉丝列表</el-menu-item>
+           <el-menu-item index="/home/picture">图文数据</el-menu-item>
+           <el-menu-item index="/home/fansiinfo">粉丝画像</el-menu-item>
+           <el-menu-item index="/home/fansilife">粉丝概况</el-menu-item>
+           <el-menu-item index="home/fanlist">粉丝列表</el-menu-item>
        </el-submenu>
        <el-menu-item>
            账户信息
