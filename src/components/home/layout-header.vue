@@ -8,12 +8,12 @@
     <el-col class="right" :span="4">
         <el-row type='flew'  justify="end" align="middle">
             <img :src="userInfo.photo ? userInfo.photo : defaultImg" alt="">
-            <el-dropdown>
+            <el-dropdown @command="handle">
                <span>{{userInfo.name}}</span>
                 <el-dropdown-menu slot="dropdown">
-<el-dropdown-item>个人信息</el-dropdown-item>
-    <el-dropdown-item>Git地址</el-dropdown-item>
-    <el-dropdown-item>退出</el-dropdown-item>
+<el-dropdown-item command="info">个人信息</el-dropdown-item>
+    <el-dropdown-item  command="git">Git地址</el-dropdown-item>
+    <el-dropdown-item command="lgout">退出</el-dropdown-item>
 
                 </el-dropdown-menu>
             </el-dropdown>
@@ -44,6 +44,16 @@ export default {
       console.log(result)
       this.userInfo = result.data.data // 获取用户个人信息
     })
+  },
+  methods: {
+    handle (commad) {
+      if (commad === 'lgout') {
+        window.localStorage.removeItem('user-token')
+        this.$router.push('/login')
+      } else if (commad === 'git') {
+        window.location.href = 'http://www.4399.com/'
+      }
+    }
   }
 }
 </script>
@@ -56,7 +66,7 @@ export default {
            .title{
               margin-left:4px;
               color: #2c3e50;
-              font-size:16px;
+              font-size:15px;
            }
        }
        .right{
