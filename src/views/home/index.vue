@@ -1,6 +1,6 @@
 <template>
     <el-container>
-    <el-aside style="background-color:#353b4e;height:100vh;width:230px">
+    <el-aside style="background-color:#353b4e;min-height:100vh;width:232px">
       <!-- 放置左侧组件 -->
       <layout-aside></layout-aside>
     </el-aside>
@@ -8,8 +8,8 @@
             <el-header>
               <layout-header></layout-header>
             </el-header>
-            <el-main>
-              主要区域
+            <el-main style="padding:0">
+
               <router-view></router-view>
             </el-main>
        </el-container>
