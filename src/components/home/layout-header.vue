@@ -7,9 +7,9 @@
     </el-col>
     <el-col class="right" :span="4">
         <el-row type='flew'  justify="end" align="middle">
-            <img src="../../assets/img/avatar.jpg" alt="">
+            <img :src="userInfo.photo ? userInfo.photo : defaultImg" alt="">
             <el-dropdown>
-                <span>哈哈</span>
+               <span>{{userInfo.name}}</span>
                 <el-dropdown-menu slot="dropdown">
 <el-dropdown-item>个人信息</el-dropdown-item>
     <el-dropdown-item>Git地址</el-dropdown-item>
@@ -25,22 +25,48 @@
 
 <script>
 export default {
-
+  data () {
+    return {
+      userInfo: {}, // 用户信息
+      defaultImg: require('../../assets/img/avatar.jpg') // 先把地址转换成变量
+    }
+  },
+  created () {
+    let token = window.localStorage.getItem('user-token') // 获取令牌
+    // 查询数据
+    this.$http({
+      url: '/user/profile',
+      //   headers参数
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }).then(result => {
+      console.log(result)
+      this.userInfo = result.data.data // 获取用户个人信息
+    })
+  }
 }
 </script>
 
 <style lang='less' scoped>
    .layout-header{
        height: 60px;
-
        .left{
            font-size: 18px;
            .title{
-               margin-left:4px;
-               height: 40px;
-               border-radius: 50%;
-               margin-right: 5px;
+              margin-left:4px;
+              color: #2c3e50;
+              font-size:16px;
            }
+       }
+       .right{
+           img{
+               height: 40px;
+               width: 40px;
+          border-radius: 50%;
+
+           }
+
        }
    }
 </style>
