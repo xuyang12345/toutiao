@@ -6,7 +6,6 @@
     </el-aside>
        <el-container>
             <el-header>
-
               <layout-header></layout-header>
             </el-header>
             <el-main>
@@ -17,12 +16,10 @@
 </template>
 
 <script>
-import layoutAside from '../../components/home/layout-aside.vue' // 引入
-import layoutHeader from '../../components/home/layout-header' // 引入
+
 export default {
   components: {
-    'layout-aside': layoutAside,
-    'layout-header': layoutHeader
+
   }
 }
 </script>
