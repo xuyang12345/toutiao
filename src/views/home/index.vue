@@ -6,7 +6,7 @@
     </el-aside>
        <el-container>
             <el-header>
-              头部
+
               <layout-header></layout-header>
             </el-header>
             <el-main>
