@@ -62,7 +62,7 @@ export default {
       this.$refs.myForm.validate((isOK) => {
         if (isOK) {
           // 认为前端校验登录成功
-          this.$http({
+          this.$axios({
             url: '/authorizations',
             method: 'post',
             data: this.loginForm

@@ -32,14 +32,11 @@ export default {
     }
   },
   created () {
-    let token = window.localStorage.getItem('user-token') // 获取令牌
     // 查询数据
-    this.$http({
-      url: '/user/profile',
+    this.$axios({
+      url: '/user/profile'
       //   headers参数
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
+
     }).then(result => {
       console.log(result)
       this.userInfo = result.data.data // 获取用户个人信息
