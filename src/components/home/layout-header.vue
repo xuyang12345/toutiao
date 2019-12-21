@@ -39,7 +39,7 @@ export default {
 
     }).then(result => {
       console.log(result)
-      this.userInfo = result.data.data // 获取用户个人信息
+      this.userInfo = result.data // 获取用户个人信息
     })
   },
   methods: {
