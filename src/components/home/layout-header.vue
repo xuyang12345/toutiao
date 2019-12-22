@@ -38,7 +38,7 @@ export default {
       //   headers参数
 
     }).then(result => {
-      console.log(result)
+      // console.log(result)
       this.userInfo = result.data // 获取用户个人信息
     })
   },
