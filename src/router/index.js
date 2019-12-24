@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 import Home from '../views/home'
 import Login from '../views/login'
 import Home1 from '../views/home/home.vue'
-
 Vue.use(VueRouter)
 
 const routes = [
@@ -22,6 +21,9 @@ const routes = [
     }, {
       path: 'comment',
       component: () => import('../views/comment')
+    }, {
+      path: 'material',
+      component: () => import('../views/material')
     }]
   }
   // {
