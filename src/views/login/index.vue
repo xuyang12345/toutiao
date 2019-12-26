@@ -15,7 +15,7 @@
                  <el-button style="float:right" type="danger">发送验证码</el-button>
              </el-form-item>
               <el-form-item prop="check">
-                <el-checkbox v-model="loginForm.check" >我不同意我不同意我不同意此条款</el-checkbox>
+                <el-checkbox v-model="loginForm.check" >请同意以下条款</el-checkbox>
             </el-form-item>
             <el-form-item>
                 <el-button @click="submitLogin" type="primary" style="width:100%">登录</el-button>
@@ -37,11 +37,11 @@ export default {
       },
       loginRules: {
         mobile: [{ required: true,
-          message: '傻逼，不知道输手机号' }, {
+          message: '请输入手机号' }, {
           pattern: /^1[3456789]\d{9}$/,
           message: '格式不对'
         }],
-        code: [{ required: true, message: '输验证码啊傻逼' }, {
+        code: [{ required: true, message: '请输入验证码' }, {
           pattern: /^\d{6}$/,
           message: '格式不对'
         }],
@@ -51,7 +51,7 @@ export default {
             callback()// 直接执行callback
           } else {
             // 认为校验不通过，要提示信息
-            callback(new Error('点啊！请点'))
+            callback(new Error('请点击这里'))
           }
         } }]
       }
