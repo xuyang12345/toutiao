@@ -51,7 +51,7 @@ export default {
             callback()// 直接执行callback
           } else {
             // 认为校验不通过，要提示信息
-            callback(new Error('请点击这里'))
+            callback(new Error(''))
           }
         } }]
       }
