@@ -1,7 +1,7 @@
 <template>
   <el-row class="layout-header" type="flex" align="middle" justify="space-between">
     <el-col class="left" :span="6">
-    <i class="el-icon-s-unfold"></i>
+    <i @click="collaspseOrOpen" class="el-icon-s-unfold"></i>
     <span class="title"> 江苏传智播客教育科技股份有限公司
     </span>
     </el-col>
@@ -28,6 +28,7 @@ import eventBus from '../../utils/eventBus.js'
 export default {
   data () {
     return {
+      collaspse: false,
       userInfo: {}, // 用户信息
       defaultImg: require('../../assets/img/avatar.jpg') // 先把地址转换成变量
     }
@@ -40,6 +41,11 @@ export default {
     })
   },
   methods: {
+    collaspseOrOpen () {
+      this.collaspse = !this.callaspse
+      // 改变折叠的状态  兄弟之间传值 用eventBus 触发事件用$emit 另一个兄弟页面引入公共实例，也用eventBus 接受事件用$on
+      eventBus.$emit('changeCollapse')
+    },
     getUserInfo () {
       // 获取用户个人信息
       this.$axios({
