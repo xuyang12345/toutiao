@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import eventBus from '../../utils/eventBus.js'
 export default {
   data () {
     return {
@@ -33,16 +34,20 @@ export default {
   },
   created () {
     // 查询数据
-    this.$axios({
-      url: '/user/profile'
-      //   headers参数
-
-    }).then(result => {
-      // console.log(result)
-      this.userInfo = result.data // 获取用户个人信息
+    this.getUserInfo()
+    eventBus.$on('updateUserInfoSuccess', () => {
+      this.getUserInfo()
     })
   },
   methods: {
+    getUserInfo () {
+      // 获取用户个人信息
+      this.$axios({
+        url: 'user/profile'
+      }).then(result => {
+        this.userInfo = result.data
+      })
+    },
     handle (commad) {
       if (commad === 'lgout') {
         window.localStorage.removeItem('user-token')
